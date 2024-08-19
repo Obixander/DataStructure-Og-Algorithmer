@@ -16,13 +16,13 @@ namespace Run
 
                 for (int i = 0; i < TestArray.Length; i++)
                 {
-                    TestArray[i] = rnd.Next(1,1001);
+                    TestArray[i] = rnd.Next(1,10);
                 }
 
                 var timer = new Stopwatch();
                 timer.Start();
 
-                int[] test2 = Algorithm.SelectionSort(TestArray);
+                int[] test2 = Algorithm.TreeSort(TestArray);
 
                 timer.Stop();
                 Console.WriteLine(timer.ElapsedTicks);

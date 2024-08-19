@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using Library;
+using System.Numerics;
 
 namespace Algorithms
 {
@@ -142,11 +143,11 @@ namespace Algorithms
         //slow version maybe?
         public static int[] InsertSort(int[] array)
         {
-            for (int i = 1; i < array.Length; i++ )
+            for (int i = 1; i < array.Length; i++)
             {
                 for (int j = i; j > 0; j--)
                 {
-                    if (array[j] < array[j-1])
+                    if (array[j] < array[j - 1])
                     {
                         var temp = array[j];
                         array[j] = array[j - 1];
@@ -164,7 +165,7 @@ namespace Algorithms
             {
                 int j = i;
                 int temp = array[j];
-                while (j > 0 && temp < array[j-1])
+                while (j > 0 && temp < array[j - 1])
                 {
                     array[j] = array[j - 1];
                     j--;
@@ -178,10 +179,10 @@ namespace Algorithms
         //Pretty good but InsertSort(Fast) is faster
         public static int[] SelectionSort(int[] array)
         {
-            for (int i = 0; i < array.Length -1; i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
                 int k = i;
-                for (int j = i+1; j < array.Length; j++)
+                for (int j = i + 1; j < array.Length; j++)
                 {
                     if (array[j] < array[k])
                         k = j;
@@ -193,12 +194,16 @@ namespace Algorithms
             return array;
         }
 
-        public static int[] TreeSort(Array a) //idk
+        public static int[] TreeSort(int[] a) //This is made for int but could be made to support generics instead
         {
-            //for (int i = 0; i < a.Length; i++)
-            //{
+            TreeNode<int> root = new TreeNode<int>(0);
+            for (int i = 0; i < a.Length; i++)
+            {
+                root = root.Insert(root, a[i]);
+            }
 
-            //}
+            Console.WriteLine(root);
+            Console.ReadLine();
 
             return null;
         }
