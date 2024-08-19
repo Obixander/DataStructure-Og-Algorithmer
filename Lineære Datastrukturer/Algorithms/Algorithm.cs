@@ -196,14 +196,7 @@ namespace Algorithms
 
         public static int[] TreeSort(int[] a) //This is made for int but could be made to support generics instead
         {
-            TreeNode<int> root = new TreeNode<int>(0);
-            for (int i = 0; i < a.Length; i++)
-            {
-                root = root.Insert(root, a[i]);
-            }
-
-            Console.WriteLine(root);
-            Console.ReadLine();
+            
 
             return null;
         }
