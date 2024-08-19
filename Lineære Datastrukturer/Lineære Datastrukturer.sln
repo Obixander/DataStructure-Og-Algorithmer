@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run", "Run\Run.csproj", "{3D4A2CF2-315A-4EB6-8874-7504D112A7B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{FEB05875-DC99-4F60-BE5E-DAE99508BD66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{548D0CF1-AADF-485F-924F-9202BB4D1E67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D4A2CF2-315A-4EB6-8874-7504D112A7B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D4A2CF2-315A-4EB6-8874-7504D112A7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D4A2CF2-315A-4EB6-8874-7504D112A7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D4A2CF2-315A-4EB6-8874-7504D112A7B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEB05875-DC99-4F60-BE5E-DAE99508BD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEB05875-DC99-4F60-BE5E-DAE99508BD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEB05875-DC99-4F60-BE5E-DAE99508BD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEB05875-DC99-4F60-BE5E-DAE99508BD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{548D0CF1-AADF-485F-924F-9202BB4D1E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{548D0CF1-AADF-485F-924F-9202BB4D1E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{548D0CF1-AADF-485F-924F-9202BB4D1E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{548D0CF1-AADF-485F-924F-9202BB4D1E67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FA1C1BF-D191-415E-930A-A86C58F6E243}
+	EndGlobalSection
+EndGlobal
