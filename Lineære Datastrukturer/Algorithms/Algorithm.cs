@@ -194,11 +194,13 @@ namespace Algorithms
             return array;
         }
 
-        public static int[] TreeSort(int[] a) //This is made for int but could be made to support generics instead
+        public static GFG TreeSort(int[] Array) //This is made for int but could be made to support generics instead
         {
+            GFG tree = new GFG();
+            tree.treeins(Array);
+            tree.inorderRec(tree.root);
+            return tree;
             
-
-            return null;
         }
 
 

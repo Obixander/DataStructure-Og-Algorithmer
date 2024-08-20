@@ -1,4 +1,5 @@
 ﻿using Algorithms;
+using Library;
 using System.Diagnostics;
 using System.Numerics;
 
@@ -13,25 +14,27 @@ namespace Run
 
                 int[] TestArray = new int[100000];
                 Random rnd = new Random();
-
-                for (int i = 0; i < TestArray.Length; i++)
+                int counter = 0;
+                for (int i = 99999; i >= 0; i--)
                 {
-                    TestArray[i] = rnd.Next(1,10);
+                    TestArray[counter] = i;
+                    counter++;
                 }
 
                 var timer = new Stopwatch();
                 timer.Start();
 
-                int[] test2 = Algorithm.TreeSort(TestArray);
+
+                var item = Algorithm.TreeSort(TestArray);
+
+
 
                 timer.Stop();
                 Console.WriteLine(timer.ElapsedTicks);
                 Console.WriteLine();
 
-                foreach (int i in test2)
-                {
-                   //Console.WriteLine(i);
-                }
+               
+
 
                 Console.ReadLine();
             }
