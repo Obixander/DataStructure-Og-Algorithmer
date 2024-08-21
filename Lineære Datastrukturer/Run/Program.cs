@@ -1,6 +1,7 @@
 ﻿using Algorithms;
 using Library;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Numerics;
 
 namespace Run
@@ -11,31 +12,22 @@ namespace Run
         {
             while (true)
             {
-
-                int[] TestArray = new int[100000];
-                Random rnd = new Random();
-                int counter = 0;
-                for (int i = 99999; i >= 0; i--)
+                //testing speed over increments
+                for (int i = 10; i <= 1000000000; i *= 10)
                 {
-                    TestArray[counter] = i;
-                    counter++;
+                    int[] TestingArray = new int[i];
+                    Random rnd = new Random();
+                    for (int j = 0; j < TestingArray.Length; j++)
+                    {
+                        TestingArray[j] = rnd.Next(1, 101);
+                    }
+                    var timer = new Stopwatch();
+                    timer.Start();
+                    var Tree = Algorithm.InsertSortFast(TestingArray);
+                    timer.Stop();
+                    Console.WriteLine("Size: " + i + " Time: " + timer.ElapsedTicks);
+                    Console.WriteLine();
                 }
-
-                var timer = new Stopwatch();
-                timer.Start();
-
-
-                var item = Algorithm.TreeSort(TestArray);
-
-
-
-                timer.Stop();
-                Console.WriteLine(timer.ElapsedTicks);
-                Console.WriteLine();
-
-               
-
-
                 Console.ReadLine();
             }
         }

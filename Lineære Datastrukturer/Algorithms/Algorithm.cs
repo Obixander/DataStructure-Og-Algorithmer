@@ -204,5 +204,33 @@ namespace Algorithms
         }
 
 
+        public static TreeNode treeSort(int[] Array)
+        {
+            TreeNode Root = null;
+            for (int i = 0; i < Array.Length; i++)
+            {
+                Root = TreeNode.Insert(Root, Array[i]);
+            }
+            return Root;
+        }
+
+        public static int FillArray(TreeNode t, int[] a , int j )
+        {
+            if (t != null) //might be wrong
+            {
+                j = FillArray(t.Left, a, j);
+                a[j++] = t.Key;
+                j = FillArray(t.Right, a, j);
+            }
+            return j;
+        }
+
+
+        public static void HeapSort()
+        {
+
+        }
+
+
     }
 }
