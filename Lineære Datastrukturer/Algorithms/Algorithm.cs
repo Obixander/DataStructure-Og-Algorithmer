@@ -1,4 +1,5 @@
 ﻿using Library;
+using System.Collections.Concurrent;
 using System.Numerics;
 
 namespace Algorithms
@@ -193,18 +194,18 @@ namespace Algorithms
             }
             return array;
         }
-
+        //GFG edition
         public static GFG TreeSort(int[] Array) //This is made for int but could be made to support generics instead
         {
             GFG tree = new GFG();
             tree.treeins(Array);
             tree.inorderRec(tree.root);
             return tree;
-            
+
         }
 
-
-        public static TreeNode treeSort(int[] Array)
+        //Lecture notes edition
+        public static TreeNode treeSort(int[] Array) // it works but every number has to be unique and it also has lot of stackoverflow exceptions
         {
             TreeNode Root = null;
             for (int i = 0; i < Array.Length; i++)
@@ -214,7 +215,7 @@ namespace Algorithms
             return Root;
         }
 
-        public static int FillArray(TreeNode t, int[] a , int j )
+        public static int FillArray(TreeNode t, int[] a, int j)
         {
             if (t != null) //might be wrong
             {
@@ -228,9 +229,81 @@ namespace Algorithms
 
         public static void HeapSort()
         {
-
+            //check library for heapsorting
+        }
+        //left is startindex 
+        //right is endindex
+        public static int[] MergeSort(int[] a, int left, int right)
+        {
+            if (left < right)
+            {
+                int mid = (left + right) / 2;
+                MergeSort(a, left, mid);
+                MergeSort(a, mid + 1, right);
+                a = Merge(a, left, mid, right);
+            }
+            return a;
         }
 
+        private static int[] Merge(int[] a, int left, int mid, int right)
+        {
+            int[] b = new int[right - left + 1];
+            int bcount = 0;
+            int lcount = left;
+            int rcount = mid + 1;
+            while ((lcount <= mid) && (rcount <= right))
+            {
+                if (a[lcount] <= a[rcount])
+                {
+                    b[bcount++] = a[lcount++];
+                }
+                else
+                {
+                    b[bcount++] = a[rcount++];
+                }
+            }
+            if (lcount > mid)
+            {
+                while (rcount <= right)
+                {
+                    b[bcount++] = a[rcount++];
+                }
+            }
+            else
+            {
+                while (lcount <= mid)
+                {
+                    b[bcount++] = a[lcount++];
+                }
+            }
+            for (bcount = 0; bcount < right - left + 1; bcount++)
+            {
+                a[left + bcount] = b[bcount];
+            }
+            return a;
+        }
+
+
+        public static int[] HybridSorting(int[] a)
+        {
+            //quicksort faster at 100 and below
+            //Bst(Opgave) faster at 1000 and above by alot but it broke and working with a mix of binary trees and non binary trees
+            //so im using merge instead lol ;-; im in spain without the s
+            // 1.000 and below is quicksort
+            // 10.000 and above is mergesort
+            if (a.Length <= 0)
+                return a;
+            if (a.Length > 10000)
+            {
+                GFGQuickSort.quickSort(a,0,a.Length-1);
+                return a;
+            }
+            else
+            {
+                a = MergeSort(a, 0, a.Length - 1);
+            }
+            return a; //this is a slower way of doing it but thats fine
+        }
 
     }
 }
