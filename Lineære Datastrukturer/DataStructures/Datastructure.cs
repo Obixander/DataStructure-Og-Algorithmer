@@ -110,7 +110,7 @@ namespace DataStructures
         }
 
         protected virtual void ResizeTo(int newLength) //Configable
-        {
+        {            
             var temp = array;
             array = new T[newLength];
             length = newLength;
@@ -202,6 +202,7 @@ namespace DataStructures
 
         protected override void ResizeTo(int newLength)
         {
+            
             base.ResizeTo(newLength+1);
         }
 

@@ -15,19 +15,19 @@ namespace Run
             while (true)
             {
 
-                //for (int i = 10; i <= 10; i *= 10)
-                //{
-                //    CustomList<int> test = new CustomList<int>(i);
-                //    for (int j = 0; j < test.Length(); j++)
-                //    {
-                //        test.Add(j, j);
-                //    }
-                //    var timer = new Stopwatch();
-                //    timer.Start();
-                //    test.RemoveAt(i-1);
-                //    timer.Stop();
-                //    Console.WriteLine("Time: " + timer.ElapsedTicks + " Size: " + i);
-                //}
+                for (int i = 10; i <= 10; i *= 10)
+                {
+                    CustomList<int> test = new CustomList<int>(5);
+                    for (int j = 0; j < test.Length()+1; j++)
+                    {
+                        test.Add(j, j);
+                    }
+                    var timer = new Stopwatch();
+                    timer.Start();
+                    test.RemoveAt(i - 1);
+                    timer.Stop();
+                    Console.WriteLine("Time: " + timer.ElapsedTicks + " Size: " + i);
+                }
 
                 CustomStack<int> Stack = new CustomStack<int>(2); // works
                 Stack.Push(1);
