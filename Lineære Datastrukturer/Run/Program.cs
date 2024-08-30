@@ -15,27 +15,29 @@ namespace Run
             while (true)
             {
 
-                for (int i = 10; i <= 10; i *= 10)
+                //for (int i = 10; i <= 10; i *= 10)
+                //{
+                //    CustomList<int> test = new CustomList<int>(5);
+                //    for (int j = 0; j < test.GetLength(); j++)
+                //    {
+                //        test.Add(j, j);
+                //    }
+                //    var timer = new Stopwatch();
+                //    timer.Start();
+                //    test.RemoveAt(test.GetLength() - 1);
+                //    timer.Stop();
+                //    Console.WriteLine("Time: " + timer.ElapsedTicks + " Size: " + i);
+                //}
+                string Sekvens = "testing testing";
+
+                CustomStack<char> Stack = new CustomStack<char>();
+                
+                foreach (char c in Sekvens)
                 {
-                    CustomList<int> test = new CustomList<int>(5);
-                    for (int j = 0; j < test.Length()+1; j++)
-                    {
-                        test.Add(j, j);
-                    }
-                    var timer = new Stopwatch();
-                    timer.Start();
-                    test.RemoveAt(i - 1);
-                    timer.Stop();
-                    Console.WriteLine("Time: " + timer.ElapsedTicks + " Size: " + i);
+                    Stack.Push(c);
                 }
-
-                CustomStack<int> Stack = new CustomStack<int>(2); // works
-                Stack.Push(1);
-                Stack.Push(2);
-                Stack.Push(3);
-
-
-
+                var testing = Stack.IsPalindrom();
+                Console.WriteLine(testing);
 
                 Console.ReadLine();
             }
