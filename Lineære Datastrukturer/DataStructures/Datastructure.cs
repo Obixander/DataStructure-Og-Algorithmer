@@ -1,4 +1,5 @@
 ﻿using System.CodeDom.Compiler;
+using System.Collections;
 using System.ComponentModel;
 using System.Drawing;
 using System.Net.Http.Headers;
@@ -301,6 +302,10 @@ namespace DataStructures
         {
             return array;
         }
+        protected virtual T GetValue(int index)
+        {
+            return array[index];
+        } 
     }
 
 
@@ -353,6 +358,29 @@ namespace DataStructures
         {
             return Length;
         }
+        /// <summary>
+        /// This Method is used on a customstack<T> and the caller top value is pop'd and pushed to the array specifed as a paramter
+        /// </summary>
+        /// <param name="GoToArray">The Array the value will go to</param>
+        public void PopPushTo(CustomStack<T> GoToArray) 
+        {
+            if (GetLength() > 0) //gets the length of the array popping to prevent index exceptions
+            {
+                int temp = int.Parse(Get(GetLength() - 1).ToString());
+                int temp2 = 99;
+                if (GoToArray.length > 0)
+                {
+                    temp2 = int.Parse(GoToArray.Get(GoToArray.GetLength() - 1).ToString());
+                }
+                if (temp < temp2 )
+                {
+                    GoToArray.Push(Pop());
+                    Length--;
+                }
+            }
+
+        }
+
 
         public void Push(T item)
         {
@@ -388,6 +416,13 @@ namespace DataStructures
 
             return true;
         }
+
+        public T Get(int index) // dont use otherside of hanoi tower case
+        {
+            return GetValue(index);
+        } 
+
+
 
 
     }

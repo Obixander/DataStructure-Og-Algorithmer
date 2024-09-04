@@ -4,6 +4,7 @@ using Library;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
 using System.Numerics;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 
 namespace Run
@@ -28,21 +29,39 @@ namespace Run
                 //    timer.Stop();
                 //    Console.WriteLine("Time: " + timer.ElapsedTicks + " Size: " + i);
                 //}
-                string Sekvens = "testing testing";
 
-                CustomStack<char> Stack = new CustomStack<char>();
-                
-                foreach (char c in Sekvens)
-                {
-                    Stack.Push(c);
-                }
-                var testing = Stack.IsPalindrom();
-                Console.WriteLine(testing);
+                CustomStack<int> a1 = new CustomStack<int>();
+                CustomStack<int> a2 = new CustomStack<int>();
+                CustomStack<int> a3 = new CustomStack<int>();
 
-                Console.ReadLine();
+                a1.Push(4);
+                a1.Push(3);
+                a1.Push(2);
+                a1.Push(1);
+
+                Hanoi(a1,a2,a3, a1.GetLength());
+           
             }
 
         }
+
+        public static void Hanoi(CustomStack<int> a1, CustomStack<int> a2, CustomStack<int> a3, int goal)
+        {
+            if (a3.GetLength() == goal)
+            {
+                return;
+            }
+            a1.PopPushTo(a3); // no worky ;-;
+            a1.PopPushTo(a2);
+            a3.PopPushTo(a2);
+            a1.PopPushTo(a3);
+            a2.PopPushTo(a1);
+            a2.PopPushTo(a3);
+            a1.PopPushTo(a3);
+
+            Hanoi(a1, a2, a3, goal);
+        }
+
 
         public void Test()
         {
