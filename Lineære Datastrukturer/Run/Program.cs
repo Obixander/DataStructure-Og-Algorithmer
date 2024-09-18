@@ -1,5 +1,5 @@
 ﻿using Algorithms;
-using DataStructures;
+using CustomDataStructures;
 using Library;
 using System.Diagnostics;
 using System.Diagnostics.Metrics;
@@ -30,39 +30,116 @@ namespace Run
                 //    Console.WriteLine("Time: " + timer.ElapsedTicks + " Size: " + i);
                 //}
 
-                CustomStack<int> a1 = new CustomStack<int>();
-                CustomStack<int> a2 = new CustomStack<int>();
-                CustomStack<int> a3 = new CustomStack<int>();
+                CustomLinkedList<int> Testing = new();
 
-                a1.Push(4);
-                a1.Push(3);
-                a1.Push(2);
-                a1.Push(1);
+                Testing.Add(1);
+                Testing.Add(2);
+                Testing.Add(3);
+                Testing.Add(4);
+                Testing.Remove(3);
 
-                Hanoi(a1,a2,a3, a1.GetLength());
-           
+
+
+
             }
-
         }
 
-        public static void Hanoi(CustomStack<int> a1, CustomStack<int> a2, CustomStack<int> a3, int goal)
-        {
-            if (a3.GetLength() == goal)
-            {
-                return;
-            }
-            a1.PopPushTo(a3); // no worky ;-;
-            a1.PopPushTo(a2);
-            a3.PopPushTo(a2);
-            a1.PopPushTo(a3);
-            a2.PopPushTo(a1);
-            a2.PopPushTo(a3);
-            a1.PopPushTo(a3);
+        //public static void IntervalPrinting(CustomSequence<string> sequence)
+        //{
+        //    Console.WriteLine(sequence.Current());
+        //    Thread.Sleep(500);
+        //    for (int i = 0; i < sequence.GetLength()-1; i++)
+        //    {
+        //        Console.WriteLine(sequence.Next());
+        //        Thread.Sleep(500);
+        //    }
+        //    for (int i = 0; i < sequence.GetLength() - 1; i++)
+        //    {
+        //        sequence.previous();
+        //    }
 
-            Hanoi(a1, a2, a3, goal);
-        }
+        //}
+
+        //public static void Hanoi(CustomStack<int> a1, CustomStack<int> a2, CustomStack<int> a3, int goal)
+        //{
+
+        //    //CustomSequence<string> sequence = new CustomSequence<string>();
+
+        //    //sequence.Add("F");
+        //    //sequence.Add("I");
+        //    //sequence.Add("L");
+        //    //sequence.Add("O");
+
+        //    //while (true)
+        //    //{
+        //    //    IntervalPrinting(sequence);
+        //    //    Console.WriteLine("---");
+        //    //    sequence.Reverse();
+        //    //    IntervalPrinting(sequence);
+        //    //    Console.WriteLine("---");
+        //    //}
 
 
+        //    //CustomStack<int> a1 = new CustomStack<int>();
+        //    //CustomStack<int> a2 = new CustomStack<int>();
+        //    //CustomStack<int> a3 = new CustomStack<int>();
+
+        //    //a1.Push(4);
+        //    //a1.Push(3);
+        //    //a1.Push(2);
+        //    //a1.Push(1);
+
+        //    //Hanoi(a1, a2, a3, a1.GetLength());
+
+        //    MoveDisk(goal, a1, a3, a2);
+        //}
+
+        //public static void MoveDisk(int n, CustomStack<int> source, CustomStack<int> destination, CustomStack<int> auxiliary)
+        //{
+        //    if (n == 1) //base call
+        //    {
+        //        source.PopPushTo(destination);
+        //        return;
+        //    }
+
+        //    //moves as many as it can to the auxiliary
+        //    source.PopPushTo(destination);
+        //    destination.PopPushTo(auxiliary);
+        //    MoveDisk(n- 1, source, auxiliary, destination);
+
+        //   source.PopPushTo(destination);
+
+        //    auxiliary.PopPushTo(source);
+        //    source.PopPushTo(destination);
+        //    MoveDisk(n - 1, auxiliary, destination, source);
+
+        //}
+
+        //
+
+//        CustomSequence<string> sequence = new CustomSequence<string>();
+//        sequence.Add("F");
+//                sequence.Add("I");
+//                sequence.Add("L");
+//                sequence.Add("O");
+
+//               sequence.Reverse();
+//                while (true)
+//                {
+//                        Console.WriteLine(sequence.Current());
+//                    Thread.Sleep(500);
+//                    for (int i = 0; i<sequence.Length() -1; i++)
+//                    {  
+//                        Console.WriteLine(sequence.Next());
+//                        Thread.Sleep(500);
+//                    }
+//                    for (int i = 0; i<sequence.Length()-1; i++)
+//                    {
+//                        sequence.previous();
+//                    }
+//Console.WriteLine("---");
+//Thread.Sleep(500);
+//                }
         public void Test()
         {
             //testing speed over increments

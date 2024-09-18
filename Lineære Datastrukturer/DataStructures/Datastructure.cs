@@ -155,7 +155,7 @@ namespace DataStructures
             array = new T[intitalLength];
             length = array.Length;
             count = 0;
-            arrayLengthChangeAmount = 1;
+            arrayLengthChangeAmount = 0;
         }
 
         private T[] Array
@@ -206,16 +206,17 @@ namespace DataStructures
         }
         protected virtual void Remove(int index)
         {
-            //This method removes an element from the array at the specified index by shifting all elements to the left
-            if (index < 0 || index >= length)
+            if (index < 0 && index >= array.Length)
             {
                 throw new IndexOutOfRangeException();
             }
-            for (int i = index; i < length - 1 - 1; i++)
+
+            for (int i = index; i < length-1; i++)
             {
-                array[i] = array[i + 1];
+                if (i + 1 < length)
+                    array[i] = array[i + 1];
             }
-            count--;
+            Resize(array.Length - 1);
         }
         //this method is used to resize the array when it is full or when a index position is removed
         protected virtual void Resize(int NewLength)
@@ -306,6 +307,7 @@ namespace DataStructures
         {
             return array[index];
         } 
+   
     }
 
 
@@ -424,6 +426,76 @@ namespace DataStructures
 
 
 
+
+    }
+
+    public class CustomSequence<T> : CustomLinearData<T>
+    {
+        public CustomSequence(int initialLength = 0) : base(initialLength)
+        {
+            CurrentIndex = 0;
+        }
+
+        private int CurrentIndex;
+
+        public T Next()
+        {
+            var t = getArray();
+            CurrentIndex++;
+            return t[CurrentIndex];
+        }
+
+        public T Current()
+        {
+            var t = getArray();
+            return t[CurrentIndex];
+        }
+
+        public T previous()
+        {
+            var t = getArray();
+            CurrentIndex--;
+            return t[CurrentIndex];
+        }
+
+        public void Add(T item)
+        {
+            Insert(item, GetLength());
+        }
+
+        public int GetLength()
+        {
+            return Length;
+        }
+       
+        public void Reverse()
+        {
+           
+            T[] temp = new T[GetLength()];
+            int counter = 0;
+            for (int i = GetLength()-1; i >= 0; i--)
+            {
+                temp[counter] = getArray()[i];
+                counter++;
+            }
+            delete();
+            for (int i = 0; i < temp.Length; i++)
+            {
+                Add(temp[i]);
+            }
+
+            
+        }
+
+        private void delete()
+        {
+            int counter = GetLength();
+            for (int i = 0; i < counter; i++)
+            {
+                Remove(i);
+                length = GetLength();
+            }
+        }
 
     }
 }
